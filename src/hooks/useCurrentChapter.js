@@ -35,11 +35,13 @@ export const useCurrentChapter = () => {
         
         // For the purpose of this implementation, we'll use a runtime approach
         // to get the content that's currently rendered
-        const mainElement = document.querySelector('main .markdown');
-        if (mainElement) {
-          // Return the content as best we can extract it
-          // In a real implementation, you'd want to get the actual raw markdown
-          return mainElement.innerText || mainElement.textContent || '';
+        if (typeof document !== 'undefined') {
+          const mainElement = document.querySelector('main .markdown');
+          if (mainElement) {
+            // Return the content as best we can extract it
+            // In a real implementation, you'd want to get the actual raw markdown
+            return mainElement.innerText || mainElement.textContent || '';
+          }
         }
       }
     } catch (error) {

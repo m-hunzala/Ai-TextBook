@@ -25,14 +25,16 @@ const Layout = (props) => {
 
   // Close user menu when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (showUserMenu && !event.target.closest('.navbar__auth-menu')) {
-        setShowUserMenu(false);
-      }
-    };
+    if (typeof document !== 'undefined') {
+      const handleClickOutside = (event) => {
+        if (showUserMenu && !event.target.closest('.navbar__auth-menu')) {
+          setShowUserMenu(false);
+        }
+      };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => document.removeEventListener('mousedown', handleClickOutside);
+    }
   }, [showUserMenu]);
 
   return (

@@ -33,7 +33,9 @@ export default function SigninPage() {
         setError(result.error.message);
       } else {
         // Redirect to home or dashboard after successful sign-in
-        window.location.href = '/';
+        if (typeof window !== 'undefined') {
+          window.location.href = '/';
+        }
       }
     } catch (err) {
       setError(err.message);

@@ -154,6 +154,11 @@ const ImprovedAuthModal = ({ isOpen, onClose }) => {
 
   // Handle social login
   const handleSocialLogin = async (provider) => {
+    if (typeof window === 'undefined') {
+      console.error('Social login not available in server environment');
+      return;
+    }
+
     setIsLoading(true);
     try {
       // Better-Auth social login implementation - redirect to provider

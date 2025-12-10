@@ -117,7 +117,9 @@ const UserProfileForm = () => {
 
       // Redirect or show success message
       alert('Profile created successfully!');
-      window.location.href = '/signin'; // Redirect to sign-in after successful profile creation
+      if (typeof window !== 'undefined') {
+        window.location.href = '/signin'; // Redirect to sign-in after successful profile creation
+      }
     } catch (err) {
       setError(err.message);
     } finally {

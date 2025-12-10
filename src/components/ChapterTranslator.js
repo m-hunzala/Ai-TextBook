@@ -24,9 +24,11 @@ const ChapterTranslator = () => {
         setOriginalHtml(contentRef.current.innerHTML);
       } else {
         // Try to get content from the main markdown area
-        const mainElement = document.querySelector('main .markdown');
-        if (mainElement && !originalHtml) {
-          setOriginalHtml(mainElement.innerHTML);
+        if (typeof document !== 'undefined') {
+          const mainElement = document.querySelector('main .markdown');
+          if (mainElement && !originalHtml) {
+            setOriginalHtml(mainElement.innerHTML);
+          }
         }
       }
     };

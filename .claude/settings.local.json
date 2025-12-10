@@ -32,7 +32,14 @@
       "Bash(git remote add origin https://github.com/m-hunzala/physical-ai-book.git)",
       "Bash(git add .)",
       "Bash(git add --all)",
-      "Bash(git reset)"
+      "Bash(git reset)",
+      "Bash(git push -u origin master)",
+      "Bash(git add package.json)",
+      "Bash(git commit -m \"Fix: Update Node.js version to 24.x for Vercel deployment\n\n- Added engines configuration to package.json to specify Node.js 24.x\n- This resolves the Vercel build error about discontinued Node.js 18.x\")",
+      "Bash(git push origin master)",
+      "Bash(git pull origin master)",
+      "Bash(git add .nvmrc vercel.json)",
+      "Bash(git commit -m \"Fix: Update Node.js version to 24.x for Vercel deployment\n\n- Updated package.json to specify Node.js 24.x in engines\n- Updated .nvmrc to use Node.js 24\n- Added Node.js 24.x engine specification to vercel.json\n- This resolves the Vercel build error about discontinued Node.js 18.x\")"
     ],
     "deny": [],
     "ask": []

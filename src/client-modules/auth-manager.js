@@ -2,6 +2,10 @@
 
 // Check authentication state and update UI accordingly
 function updateAuthUI() {
+  if (typeof window === 'undefined' || typeof document === 'undefined') {
+    return;
+  }
+
   const isAuthenticated = localStorage.getItem('auth') === 'true';
   const logoutBtn = document.getElementById('logout-btn');
   const loginLink = document.querySelector('a[href="/login"]');
@@ -24,6 +28,10 @@ function updateAuthUI() {
 
 // Handle logout button click
 function handleLogout() {
+  if (typeof window === 'undefined' || typeof localStorage === 'undefined') {
+    return;
+  }
+
   // Remove authentication from localStorage
   localStorage.removeItem('auth');
   localStorage.removeItem('currentUser');
@@ -36,23 +44,25 @@ function handleLogout() {
 }
 
 // Initialize authentication management when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-  // Update UI based on current auth state
-  updateAuthUI();
+if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+  document.addEventListener('DOMContentLoaded', function() {
+    // Update UI based on current auth state
+    updateAuthUI();
 
-  // Add event listener to logout button
-  const logoutBtn = document.getElementById('logout-btn');
-  if (logoutBtn) {
-    logoutBtn.addEventListener('click', handleLogout);
-  }
-
-  // Listen for storage changes (in case user logs in/out from another tab)
-  window.addEventListener('storage', function(e) {
-    if (e.key === 'auth') {
-      updateAuthUI();
+    // Add event listener to logout button
+    const logoutBtn = document.getElementById('logout-btn');
+    if (logoutBtn) {
+      logoutBtn.addEventListener('click', handleLogout);
     }
+
+    // Listen for storage changes (in case user logs in/out from another tab)
+    window.addEventListener('storage', function(e) {
+      if (e.key === 'auth') {
+        updateAuthUI();
+      }
+    });
   });
-});
+}
 
 // Export for use in Docusaurus config if needed
 export { updateAuthUI, handleLogout };

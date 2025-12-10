@@ -47,14 +47,16 @@ const PersonalizeChapterButton = ({ onPersonalize, chapterId }) => {
 
         // Instead of just an alert, we could trigger a visual change to indicate personalization
         // This would typically involve updating content dynamically
-        document.querySelectorAll('p, li, code, pre').forEach(element => {
-          // Example: Temporarily highlight elements that could be personalized
-          element.style.transition = 'background-color 0.3s';
-          element.style.backgroundColor = '#e6f7ff';
-          setTimeout(() => {
-            element.style.backgroundColor = '';
-          }, 1000);
-        });
+        if (typeof document !== 'undefined') {
+          document.querySelectorAll('p, li, code, pre').forEach(element => {
+            // Example: Temporarily highlight elements that could be personalized
+            element.style.transition = 'background-color 0.3s';
+            element.style.backgroundColor = '#e6f7ff';
+            setTimeout(() => {
+              element.style.backgroundColor = '';
+            }, 1000);
+          });
+        }
 
         // Alert with user's profile info
         alert(`Content will be personalized based on your profile:\n- Programming Background: ${profileData.programming_background || 'Not specified'}\n- AI Experience: ${profileData.experience_level || 'Not specified'}\n- Hardware: ${Array.isArray(profileData.hardware_owned) ? profileData.hardware_owned.join(', ') : 'Not specified'}`);

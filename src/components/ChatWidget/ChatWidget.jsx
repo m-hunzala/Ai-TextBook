@@ -44,35 +44,41 @@ const ChatWidget = ({ apiUrl, apiKey }) => {
 
   // Function to handle text selection on the page for RAG
   useEffect(() => {
-    const handleTextSelection = () => {
-      if (!isSelectingForRAG) return;
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      const handleTextSelection = () => {
+        if (!isSelectingForRAG) return;
 
-      const selection = window.getSelection();
-      if (selection && selection.toString().trim() !== '') {
-        const text = selection.toString().trim();
-        if (text.length > 10) { // Only capture meaningful selections
-          setSelectedText(text);
-          setUseSelectedText(true);
-          setError('');
+        const selection = window.getSelection();
+        if (selection && selection.toString().trim() !== '') {
+          const text = selection.toString().trim();
+          if (text.length > 10) { // Only capture meaningful selections
+            setSelectedText(text);
+            setUseSelectedText(true);
+            setError('');
 
-          // Show temporary notification to user
-          console.log('Selected text captured for RAG:', text.substring(0, 50) + '...');
+            // Show temporary notification to user
+            console.log('Selected text captured for RAG:', text.substring(0, 50) + '...');
 
-          // Reset selection mode after capturing
-          setIsSelectingForRAG(false);
+            // Reset selection mode after capturing
+            setIsSelectingForRAG(false);
+          }
         }
-      }
-    };
+      };
 
-    document.addEventListener('mouseup', handleTextSelection);
+      document.addEventListener('mouseup', handleTextSelection);
 
-    return () => {
-      document.removeEventListener('mouseup', handleTextSelection);
-    };
+      return () => {
+        document.removeEventListener('mouseup', handleTextSelection);
+      };
+    }
   }, [isSelectingForRAG]);
 
   // Function to get selected text from the page with additional info
   const getSelectedText = () => {
+    if (typeof window === 'undefined' || typeof document === 'undefined') {
+      return null;
+    }
+
     const selection = window.getSelection();
     if (!selection || selection.toString().trim() === '') {
       return null;
@@ -93,8 +99,8 @@ const ChatWidget = ({ apiUrl, apiKey }) => {
       current = current.parentElement || current.parentNode;
     }
 
-    const docTitle = document.title;
-    const docUrl = window.location.href;
+    const docTitle = typeof document !== 'undefined' ? document.title : '';
+    const docUrl = typeof window !== 'undefined' ? window.location.href : '';
 
     return {
       text,
@@ -123,8 +129,8 @@ const ChatWidget = ({ apiUrl, apiKey }) => {
       visible: true,
       source: source,
       position: {
-        x: rect.left + window.scrollX,
-        y: rect.top + window.scrollY - 10
+        x: rect.left + (typeof window !== 'undefined' ? window.scrollX : 0),
+        y: rect.top + (typeof window !== 'undefined' ? window.scrollY : 0) - 10
       }
     });
 
@@ -140,7 +146,7 @@ const ChatWidget = ({ apiUrl, apiKey }) => {
       }, 5000);
     } else {
       // If we can't find the exact text, navigate to the URL with anchor if available
-      if (source.url) {
+      if (source.url && typeof window !== 'undefined' && typeof document !== 'undefined') {
         const [baseUrl, anchor] = source.url.split('#');
         if (anchor) {
           const element = document.getElementById(anchor) || document.querySelector(`[name="${anchor}"]`);
@@ -170,19 +176,21 @@ const ChatWidget = ({ apiUrl, apiKey }) => {
 
   // Close popover when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (popover.visible && !event.target.closest('.source-popover')) {
-        closePopover();
-      }
-      if (showExpertSkills && !event.target.closest('.expert-skill-selector')) {
-        setShowExpertSkills(false);
-      }
-    };
+    if (typeof document !== 'undefined') {
+      const handleClickOutside = (event) => {
+        if (popover.visible && !event.target.closest('.source-popover')) {
+          closePopover();
+        }
+        if (showExpertSkills && !event.target.closest('.expert-skill-selector')) {
+          setShowExpertSkills(false);
+        }
+      };
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }
   }, [popover.visible, showExpertSkills]);
 
   // Function to toggle expert skills dropdown
@@ -261,6 +269,10 @@ const ChatWidget = ({ apiUrl, apiKey }) => {
 
   // Function to highlight text in the document
   const highlightTextInDocument = (source) => {
+    if (typeof document === 'undefined' || typeof NodeFilter === 'undefined') {
+      return false;
+    }
+
     const textToFind = source.snippet ? source.snippet.replace(/\.{3}$/, '').trim() : '';
 
     if (!textToFind) return false;
@@ -323,6 +335,10 @@ const ChatWidget = ({ apiUrl, apiKey }) => {
 
   // Function to clear highlighting
   const clearHighlighting = () => {
+    if (typeof document === 'undefined') {
+      return;
+    }
+
     const highlightedElements = document.querySelectorAll('.chat-widget-highlight');
     highlightedElements.forEach(el => {
       const parent = el.parentNode;
@@ -335,6 +351,10 @@ const ChatWidget = ({ apiUrl, apiKey }) => {
 
   // Handle capturing selected text
   const handleCaptureSelectedText = () => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
     const selection = window.getSelection();
     if (selection && selection.toString().trim() !== '') {
       // If there's already selected text, use it directly
@@ -454,7 +474,7 @@ const ChatWidget = ({ apiUrl, apiKey }) => {
         } else if (metadata.url) {
           docUrl = metadata.url;
         } else {
-          docUrl = window.location.origin; // fallback
+          docUrl = typeof window !== 'undefined' ? window.location.origin : ''; // fallback
         }
 
         return {

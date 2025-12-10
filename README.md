@@ -12,7 +12,7 @@ This project implements a Docusaurus book app with AI agents, authentication, pe
 
 ## Prerequisites
 
-- Node.js 18+
+- Node.js 24+
 - Python 3.8+
 - PostgreSQL database
 - npm
