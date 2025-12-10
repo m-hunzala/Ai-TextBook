@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+openai
+qdrant-client
+pydantic
+python-dotenv
+markdown
+psycopg2-binary
+sqlalchemy
+asyncpg
+tiktoken
+langchain
+langchain-community
+langchain-openai
