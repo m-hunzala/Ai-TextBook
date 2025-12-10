@@ -1,0 +1,70 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .main-text { 
+      font-family: 'Arial', sans-serif; 
+      font-size: 22px; 
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    .highlight-text {
+      font-family: 'Arial', sans-serif; 
+      font-size: 22px; 
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    .robot-shape { 
+      fill: none;
+      stroke: #4285F4; 
+      stroke-width: 2;
+    }
+    .ai-element {
+      fill: #34A853;
+    }
+    .text-gradient {
+      fill: url(#textGradient);
+    }
+  </style>
+  
+  <!-- Gradient definition -->
+  <defs>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4285F4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#34A853;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#EA4335;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Robot silhouette -->
+  <g transform="translate(15, 10)">
+    <!-- Head -->
+    <rect x="5" y="0" width="15" height="15" rx="3" class="robot-shape"/>
+    
+    <!-- Eyes -->
+    <circle cx="9" cy="5" r="1.5" class="ai-element"/>
+    <circle cx="16" cy="5" r="1.5" class="ai-element"/>
+    
+    <!-- Body -->
+    <rect x="0" y="18" width="25" height="22" rx="3" class="robot-shape"/>
+    
+    <!-- Arms -->
+    <line x1="-5" y1="22" x2="0" y2="22" class="robot-shape"/>
+    <line x1="25" y1="22" x2="30" y2="22" class="robot-shape"/>
+    
+    <!-- Legs -->
+    <line x1="8" y1="40" x2="8" y2="47" class="robot-shape"/>
+    <line x1="17" y1="40" x2="17" y2="47" class="robot-shape"/>
+  </g>
+  
+  <!-- Main text: Physical AI -->
+  <text x="50" y="25" class="main-text" fill="#1a1a1a">Physical AI</text>
+  
+  <!-- Subtext: Humanoid -->
+  <text x="50" y="48" class="highlight-text" fill="#4285F4">Humanoid</text>
+  
+  <!-- Small book icon -->
+  <g transform="translate(170, 15)">
+    <rect x="0" y="0" width="12" height="15" fill="none" stroke="#EA4335" stroke-width="1.5"/>
+    <rect x="2" y="2" width="8" height="11" fill="#EA4335" opacity="0.3"/>
+    <path d="M4,4 L8,4 M4,7 L9,7 M4,10 L7,10" stroke="#EA4335" stroke-width="0.8"/>
+  </g>
+</svg>

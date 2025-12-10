@@ -1,0 +1,2036 @@
+/**
+ * Premium Professional Cloud-Inspired Theme for Physical AI & Humanoid Robotics
+ * Modern Color Palette: Deep Navy, Soft Blues, Clean White with Cloud Accents
+ */
+
+/* Core variables for modern cloud-inspired design */
+:root {
+  /* Primary color palette - cloud-inspired blues */
+  --ifm-color-primary: #2563eb; /* Modern blue */
+  --ifm-color-primary-dark: #1d4ed8; /* Darker blue */
+  --ifm-color-primary-darker: #1e40af; /* Even darker blue */
+  --ifm-color-primary-darkest: #1e3a8a; /* Darkest blue */
+  --ifm-color-primary-light: #3b82f6; /* Light blue */
+  --ifm-color-primary-lighter: #60a5fa; /* Lighter blue */
+  --ifm-color-primary-lightest: #93c5fd; /* Lightest blue */
+  --ifm-color-primary-contrast-background: #2563eb33;
+
+  /* Dark theme colors */
+  --ifm-background-color: #0f172a; /* Dark blue-gray */
+  --ifm-background-surface-color: #1e293b; /* Darker blue-gray */
+  --ifm-background-surface-color-deep: #0f172a; /* Deep blue-gray */
+  --ifm-background-surface-color-light: #334155; /* Lighter blue-gray */
+
+  --ifm-text-color: #f1f5f9; /* Light blue-gray */
+  --ifm-text-color-secondary: #cbd5e1; /* Secondary text */
+  --ifm-text-color-tertiary: #94a3b8; /* Tertiary text */
+
+  --ifm-border-color: #334155; /* Border color */
+
+  /* Extended gray scale for consistency */
+  --ifm-gray-50: #f8fafc;
+  --ifm-gray-100: #f1f5f9;
+  --ifm-gray-200: #e2e8f0;
+  --ifm-gray-300: #cbd5e1;
+  --ifm-gray-400: #94a3b8;
+  --ifm-gray-500: #64748b;
+  --ifm-gray-600: #475569;
+  --ifm-gray-700: #334155;
+  --ifm-gray-800: #1e293b;
+  --ifm-gray-900: #0f172a;
+
+  /* Cloud-inspired accent colors */
+  --ifm-color-accent: #8b5cf6; /* Purple accent */
+  --ifm-color-accent-secondary: #06b6d4; /* Cyan accent */
+  --ifm-color-success: #10b981; /* Green for success */
+  --ifm-color-warning: #f59e0b; /* Amber for warnings */
+  --ifm-color-danger: #ef4444; /* Red for errors */
+
+  /* Spacing & Borders */
+  --ifm-spacing-horizontal: 1.5rem;
+  --ifm-spacing-vertical: 1.5rem;
+  --ifm-global-radius: 16px; /* Modern rounded corners */
+  --ifm-global-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --ifm-global-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  --ifm-global-shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+
+  /* Typography */
+  --ifm-font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Poppins', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Open Sans', 'Helvetica Neue', sans-serif;
+  --ifm-h1-font-size: 3rem;
+  --ifm-h2-font-size: 2.25rem;
+  --ifm-h3-font-size: 1.875rem;
+  --ifm-h4-font-size: 1.5rem;
+  --ifm-font-size-base: 1.125rem;
+  --ifm-line-height-base: 1.75;
+  --ifm-code-font-size: 0.9rem;
+
+  /* Buttons */
+  --ifm-button-border-radius: 12px;
+  --ifm-button-padding-horizontal: 1.5rem;
+  --ifm-button-padding-vertical: 0.75rem;
+
+  /* Touch-friendly sizes */
+  --ifm-touch-target-min: 44px; /* Minimum touch target size for accessibility */
+  --ifm-button-height: 48px; /* Touch-friendly button height */
+  --ifm-input-height: 48px; /* Touch-friendly input height */
+}
+
+/* Dark mode variables (when user prefers dark) */
+[data-theme='dark'] {
+  --ifm-color-primary: #3b82f6; /* Lighter blue for contrast */
+  --ifm-color-primary-dark: #2563eb;
+  --ifm-color-primary-darker: #1d4ed8;
+  --ifm-color-primary-darkest: #1e3a8a;
+  --ifm-color-primary-light: #60a5fa;
+  --ifm-color-primary-lighter: #93c5fd;
+  --ifm-color-primary-lightest: #dbeafe;
+  --docusaurus-highlighted-code-line-bg: rgba(59, 130, 246, 0.2);
+
+  --ifm-background-color: #0f172a; /* Deep blue-gray */
+  --ifm-background-surface-color: #1e293b;
+  --ifm-background-surface-color-deep: #0f172a;
+  --ifm-background-surface-color-light: #334155;
+
+  --ifm-text-color: #f1f5f9;
+  --ifm-text-color-secondary: #cbd5e1;
+  --ifm-text-color-tertiary: #94a3b8;
+
+  --ifm-border-color: #334155;
+}
+
+[data-theme='dark'] .navbar-sidebar__brand {
+  background-color: #0f172a !important;
+}
+
+[data-theme='dark'] .navbar-sidebar__items {
+  background-color: #0f172a !important;
+}
+
+/* Light mode colors - clean, cloud-inspired aesthetic */
+[data-theme='light'] {
+  --ifm-color-primary: #2563eb; /* Deep blue */
+  --ifm-color-primary-dark: #1d4ed8; /* Darker blue */
+  --ifm-color-primary-darker: #1e40af; /* Even darker blue */
+  --ifm-color-primary-darkest: #1e3a8a; /* Darkest blue */
+  --ifm-color-primary-light: #3b82f6; /* Light blue */
+  --ifm-color-primary-lighter: #60a5fa; /* Lighter blue */
+  --ifm-color-primary-lightest: #dbeafe; /* Lightest blue */
+  --docusaurus-highlighted-code-line-bg: rgba(37, 99, 235, 0.1);
+
+  /* Light theme colors - clean and professional */
+  --ifm-background-color: #ffffff; /* Pure white */
+  --ifm-background-surface-color: #f8fafc; /* Very light blue-gray */
+  --ifm-background-surface-color-deep: #f1f5f9; /* Light blue-gray */
+  --ifm-background-surface-color-light: #e2e8f0; /* Medium light blue-gray */
+
+  --ifm-text-color: #0f172a; /* Dark blue-gray text */
+  --ifm-text-color-secondary: #475569; /* Medium dark blue-gray text */
+  --ifm-text-color-tertiary: #64748b; /* Medium blue-gray text */
+
+  --ifm-border-color: #e2e8f0; /* Light blue-gray border */
+
+  --ifm-gray-50: #f8fafc;
+  --ifm-gray-100: #f1f5f9;
+  --ifm-gray-200: #e2e8f0;
+  --ifm-gray-300: #cbd5e1;
+  --ifm-gray-400: #94a3b8;
+  --ifm-gray-500: #64748b;
+  --ifm-gray-600: #475569;
+  --ifm-gray-700: #334155;
+  --ifm-gray-800: #1e293b;
+  --ifm-gray-900: #0f172a;
+}
+
+[data-theme='light'] .navbar-sidebar__brand {
+  background-color: #ffffff !important;
+}
+
+[data-theme='light'] .navbar-sidebar__items {
+  background-color: #ffffff !important;
+}
+
+/* Teal alternative accent color */
+:root {
+  --ifm-color-accent: #14b8a6; /* Teal */
+  --ifm-color-accent-dark: #0d9488; /* Dark Teal */
+  --ifm-color-accent-light: #2dd4bf; /* Light Teal */
+}
+
+/* Authentication menu responsive styles */
+.navbar__auth-extensions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+}
+
+.navbar__auth-extensions .navbar__item {
+  margin: 0;
+}
+
+/* Ensure auth manager button aligns properly in navbar */
+.navbar-sidebar__items .navbar__auth-extensions {
+  padding: 0.5rem 1rem;
+  width: 100%;
+  background-color: var(--ifm-navbar-background-color);
+  border-bottom: 1px solid var(--ifm-border-color);
+}
+
+/* Custom styles for the login button - using website theme colors */
+.navbar__item a[href="/login"] {
+  padding: 6px 14px !important;
+  border: 1px solid var(--ifm-color-primary) !important;
+  border-radius: 6px !important;
+  color: white !important;
+  text-decoration: none !important;
+  transition: all 0.2s ease !important;
+  background-color: var(--ifm-color-primary) !important;
+  min-height: auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: 500 !important;
+}
+
+.navbar__item a[href="/login"]:hover {
+  background-color: var(--ifm-color-primary-dark) !important;
+  border-color: var(--ifm-color-primary-dark) !important;
+  color: white !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.2) !important;
+}
+
+/* Dark theme specific styles */
+html[data-theme='dark'] .navbar__item a[href="/login"] {
+  background-color: var(--ifm-color-primary) !important;
+  border-color: var(--ifm-color-primary) !important;
+  color: white !important;
+}
+
+html[data-theme='dark'] .navbar__item a[href="/login"]:hover {
+  background-color: var(--ifm-color-primary-dark) !important;
+  border-color: var(--ifm-color-primary-dark) !important;
+  color: white !important;
+}
+
+/* Light theme specific styles */
+html[data-theme='light'] .navbar__item a[href="/login"] {
+  background-color: var(--ifm-color-primary) !important;
+  border-color: var(--ifm-color-primary) !important;
+  color: white !important;
+}
+
+html[data-theme='light'] .navbar__item a[href="/login"]:hover {
+  background-color: var(--ifm-color-primary-dark) !important;
+  border-color: var(--ifm-color-primary-dark) !important;
+  color: white !important;
+}
+
+/* Mobile sidebar menu styles */
+.menu__list-item a[href="/login"] {
+  display: flex !important;
+  align-items: center !important;
+  padding: 8px 16px !important;
+  border: 1px solid var(--ifm-color-primary) !important;
+  border-radius: 6px !important;
+  color: white !important;
+  text-decoration: none !important;
+  margin-bottom: 8px !important;
+  min-height: var(--ifm-touch-target-min) !important;
+  background-color: var(--ifm-color-primary) !important;
+  font-weight: 500 !important;
+}
+
+html[data-theme='dark'] .menu__list-item a[href="/login"] {
+  background-color: var(--ifm-color-primary) !important;
+  border-color: var(--ifm-color-primary) !important;
+  color: white !important;
+}
+
+html[data-theme='light'] .menu__list-item a[href="/login"] {
+  background-color: var(--ifm-color-primary) !important;
+  border-color: var(--ifm-color-primary) !important;
+  color: white !important;
+}
+
+.menu__list-item a[href="/login"]:hover {
+  background-color: var(--ifm-color-primary-dark) !important;
+  border-color: var(--ifm-color-primary-dark) !important;
+  color: white !important;
+}
+
+/* Logout button styles - matching login button styling */
+.navbar__item button#logout-btn {
+  padding: 6px 14px !important;
+  border: 1px solid var(--ifm-color-primary) !important;
+  border-radius: 6px !important;
+  color: white !important;
+  background-color: var(--ifm-color-primary) !important;
+  min-height: auto !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.navbar__item button#logout-btn:hover {
+  background-color: var(--ifm-color-primary-dark) !important;
+  border-color: var(--ifm-color-primary-dark) !important;
+  color: white !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 8px rgba(37, 99, 235, 0.2) !important;
+}
+
+/* Dark theme specific styles for logout button */
+html[data-theme='dark'] .navbar__item button#logout-btn {
+  background-color: var(--ifm-color-primary) !important;
+  border-color: var(--ifm-color-primary) !important;
+  color: white !important;
+}
+
+html[data-theme='dark'] .navbar__item button#logout-btn:hover {
+  background-color: var(--ifm-color-primary-dark) !important;
+  border-color: var(--ifm-color-primary-dark) !important;
+  color: white !important;
+}
+
+/* Light theme specific styles for logout button */
+html[data-theme='light'] .navbar__item button#logout-btn {
+  background-color: var(--ifm-color-primary) !important;
+  border-color: var(--ifm-color-primary) !important;
+  color: white !important;
+}
+
+html[data-theme='light'] .navbar__item button#logout-btn:hover {
+  background-color: var(--ifm-color-primary-dark) !important;
+  border-color: var(--ifm-color-primary-dark) !important;
+  color: white !important;
+}
+
+/* Initially hide logout button, show login button */
+.navbar__item:has(button#logout-btn) {
+  display: none;
+}
+
+/* Show logout button when user is authenticated */
+body.authenticated .navbar__item:has(button#logout-btn) {
+  display: block;
+}
+
+body:not(.authenticated) .navbar__item a[href="/login"] {
+  display: block;
+}
+
+body.authenticated .navbar__item a[href="/login"] {
+  display: none;
+}
+
+/* Mobile sidebar menu styles for logout button */
+.menu__list-item button#logout-btn {
+  display: flex !important;
+  align-items: center !important;
+  padding: 8px 16px !important;
+  border: 1px solid var(--ifm-color-primary) !important;
+  border-radius: 6px !important;
+  color: white !important;
+  background-color: var(--ifm-color-primary) !important;
+  min-height: var(--ifm-touch-target-min) !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  width: 100% !important;
+}
+
+html[data-theme='dark'] .menu__list-item button#logout-btn {
+  background-color: var(--ifm-color-primary) !important;
+  border-color: var(--ifm-color-primary) !important;
+  color: white !important;
+}
+
+html[data-theme='light'] .menu__list-item button#logout-btn {
+  background-color: var(--ifm-color-primary) !important;
+  border-color: var(--ifm-color-primary) !important;
+  color: white !important;
+}
+
+.menu__list-item button#logout-btn:hover {
+  background-color: var(--ifm-color-primary-dark) !important;
+  border-color: var(--ifm-color-primary-dark) !important;
+  color: white !important;
+}
+
+/* JavaScript for authentication state management */
+#logout-btn {
+  display: none;
+}
+
+body.authenticated #logout-btn {
+  display: inline-flex;
+}
+
+body:not(.authenticated) a[href="/login"] {
+  display: inline-flex;
+}
+
+body.authenticated a[href="/login"] {
+  display: none;
+}
+
+/* Button styles for auth components */
+.navbar__auth-button {
+  background: var(--ifm-color-primary);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--ifm-button-border-radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  min-height: var(--ifm-button-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar__auth-button:hover {
+  background: var(--ifm-color-primary-dark);
+  color: white;
+  text-decoration: none;
+}
+
+.navbar__auth-button:active {
+  transform: translateY(1px);
+}
+
+/* Auth manager in navbar */
+.navbar__auth-manager {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-menu-container {
+  position: relative;
+  display: inline-block;
+}
+
+.user-menu-button {
+  background: none;
+  border: none;
+  color: var(--ifm-navbar-link-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.15s ease;
+  text-decoration: none;
+}
+
+.user-menu-button:hover {
+  background-color: var(--ifm-color-gray-700);
+  color: var(--ifm-color-primary);
+}
+
+.user-menu-text {
+  font-weight: 500;
+  color: var(--ifm-text-color);
+}
+
+.user-menu-icon {
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+  color: var(--ifm-text-color-secondary);
+}
+
+.user-menu-button[aria-expanded="true"] .user-menu-icon {
+  transform: rotate(180deg);
+}
+
+.user-menu-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-border-color);
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ifm-global-shadow);
+  min-width: 200px;
+  z-index: 1000;
+  margin-top: 0.25rem;
+}
+
+.user-menu-header {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--ifm-border-color);
+}
+
+.user-menu-name {
+  font-weight: 600;
+  color: var(--ifm-text-color);
+}
+
+.user-menu-email {
+  font-size: 0.85rem;
+  color: var(--ifm-text-color-secondary);
+}
+
+.user-menu-divider {
+  margin: 0;
+  border: 0;
+  height: 1px;
+  background-color: var(--ifm-border-color);
+}
+
+.user-menu-item {
+  width: 100%;
+  background: none;
+  border: none;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  color: var(--ifm-color-danger);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.user-menu-item:hover {
+  background-color: var(--ifm-background-surface-color-light);
+  color: #f87171; /* tailwind red-400 */
+}
+
+/* Responsive adjustments for auth menu */
+@media (max-width: 996px) {
+  .navbar__auth-extensions {
+    position: static;
+    padding: 0.5rem 1rem;
+    width: 100%;
+    background-color: var(--ifm-navbar-background-color);
+    border-bottom: 1px solid var(--ifm-border-color);
+  }
+
+  .user-menu-dropdown {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 300px;
+  }
+}
+
+/* Improve mobile navigation */
+@media (max-width: 996px) {
+  .navbar-sidebar__brand {
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-sidebar__items {
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Proper sidebar styling for Docusaurus */
+.navbar-sidebar {
+  width: 300px !important;
+  background-color: var(--ifm-background-surface-color);
+  position: fixed !important;
+  left: 0 !important;
+  top: var(--ifm-navbar-height) !important;
+  height: calc(100vh - var(--ifm-navbar-height)) !important;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1001;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-sidebar.navbar-sidebar--show {
+  transform: translateX(0) !important;
+}
+
+.navbar-sidebar__brand {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid var(--ifm-border-color);
+  background-color: var(--ifm-background-surface-color);
+}
+
+.navbar-sidebar__items {
+  padding: 1rem 1.5rem;
+  background-color: var(--ifm-background-surface-color);
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Mobile sidebar - full width */
+@media (max-width: 996px) {
+  .navbar-sidebar {
+    width: 80vw !important;
+    max-width: 80vw !important;
+  }
+
+  .navbar-sidebar__items {
+    height: calc(100vh - var(--ifm-navbar-height));
+    padding: 1rem;
+  }
+}
+
+/* Ensure sidebar menu takes full available space */
+.menu {
+  background-color: var(--ifm-background-surface-color);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu__list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Preserve Docusaurus sidebar toggle functionality */
+.navbar__toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--ifm-color-primary);
+  transition: all 0.2s ease;
+}
+
+.navbar__toggle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+/* Make sure sidebar works on all pages */
+html {
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Style for auth buttons in sidebar */
+.navbar-sidebar__items .navbar__auth-manager {
+  padding: 0.5rem 0;
+  width: 100%;
+}
+
+.navbar-sidebar__items .navbar__auth-button {
+  width: 100%;
+  justify-content: center;
+  margin: 0.25rem 0;
+}
+
+/* Ensure proper spacing for sidebar content */
+.sidebar-container {
+  padding: 1rem;
+}
+
+/* Improve sidebar scrolling */
+.navbar-sidebar__items {
+  -ms-overflow-style: auto;
+  scrollbar-width: thin;
+}
+
+.navbar-sidebar__items::-webkit-scrollbar {
+  width: 6px;
+}
+
+.navbar-sidebar__items::-webkit-scrollbar-track {
+  background: var(--ifm-background-surface-color);
+}
+
+.navbar-sidebar__items::-webkit-scrollbar-thumb {
+  background-color: var(--ifm-color-emphasis-300);
+  border-radius: 3px;
+}
+
+/* Improved accessibility */
+.user-menu-button:focus,
+.navbar__auth-link:focus,
+.navbar__auth-button:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.chat-widget-button:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* Global Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--ifm-font-size-base);
+  line-height: var(--ifm-line-height-base);
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-text-color);
+}
+
+/* Modern typography with improved readability and cloud-inspired design */
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  font-family: var(--ifm-font-family-base);
+  font-size: var(--ifm-font-size-base);
+  line-height: var(--ifm-line-height-base);
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-text-color);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Cloud-inspired typography with modern hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ifm-font-family-base);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  color: var(--ifm-text-color);
+  margin: 0 0 1rem 0;
+  position: relative;
+}
+
+/* Enhanced heading styles with cloud-inspired accents */
+h1 {
+  font-size: var(--ifm-h1-font-size);
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary), var(--ifm-color-primary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+h2 {
+  font-size: var(--ifm-h2-font-size);
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--ifm-color-primary), transparent);
+  border-radius: 2px;
+}
+
+h3 {
+  font-size: var(--ifm-h3-font-size);
+  color: var(--ifm-color-primary-light);
+}
+
+h4 {
+  font-size: var(--ifm-h4-font-size);
+  color: var(--ifm-text-color-secondary);
+}
+
+/* Modern paragraph styling */
+p {
+  margin: 0 0 1.25rem 0;
+  line-height: 1.7;
+  color: var(--ifm-text-color-secondary);
+}
+
+/* Cloud-inspired link styling */
+a {
+  color: var(--ifm-color-primary);
+  text-decoration: none;
+  position: relative;
+  transition: all 0.2s ease;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+a:hover {
+  color: var(--ifm-color-primary-light);
+  background-color: rgba(59, 130, 246, 0.1);
+  text-decoration: none;
+}
+
+/* Cloud-inspired list styling */
+ul, ol {
+  padding-left: 1.5rem;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.7;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  color: var(--ifm-text-color-secondary);
+}
+
+li:last-child {
+  margin-bottom: 0;
+}
+
+/* Modern code styling with cloud-inspired colors */
+code {
+  background-color: rgba(37, 99, 235, 0.05);
+  color: var(--ifm-color-primary-light);
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  font-size: 0.875em;
+  border: 1px solid var(--ifm-border-color);
+  font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+}
+
+pre {
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-border-color);
+  border-radius: 12px;
+  padding: 1.25rem;
+  overflow: auto;
+  margin: 0 0 1.5rem 0;
+}
+
+pre code {
+  background: none;
+  color: var(--ifm-text-color);
+  padding: 0;
+  border: none;
+  line-height: 1.6;
+}
+
+/* Card styling */
+.card {
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ifm-global-shadow-card);
+  transition: all 0.3s ease;
+  border: 1px solid var(--ifm-border-color);
+  overflow: hidden;
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-text-color);
+}
+
+.card:hover {
+  box-shadow: var(--ifm-global-shadow);
+  transform: translateY(-2px);
+}
+
+/* Touch-friendly buttons with modern cloud-inspired design */
+.button {
+  min-height: var(--ifm-button-height);
+  min-width: 48px; /* Minimum touch target size */
+  border-radius: var(--ifm-button-border-radius);
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  padding: var(--ifm-button-padding-vertical) var(--ifm-button-padding-horizontal);
+  border: 1px solid transparent;
+  font-size: 0.875rem;
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-light) 100%);
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Primary button - ensure good contrast in both themes */
+.button--primary {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-light) 100%);
+  color: white;
+}
+
+.button--secondary {
+  background: transparent;
+  color: var(--ifm-color-emphasis-1000);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.button--secondary:hover {
+  background-color: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-400);
+}
+
+/* Homepage button specific styling */
+.hero .button {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-light) 100%);
+  color: white;
+  box-shadow: var(--ifm-global-shadow-card);
+  border: none;
+  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.hero .button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ifm-global-shadow-hover);
+  background: linear-gradient(135deg, var(--ifm-color-primary-dark) 0%, var(--ifm-color-primary) 100%);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ifm-global-shadow-hover);
+  background: linear-gradient(135deg, var(--ifm-color-primary-dark) 0%, var(--ifm-color-primary) 100%);
+  z-index: 1;
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: var(--ifm-global-shadow);
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-light) 100%);
+  color: white;
+}
+
+.button--secondary {
+  background: transparent;
+  color: var(--ifm-color-emphasis-1000);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.button--secondary:hover {
+  background-color: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-400);
+}
+
+/* Touch-friendly card components with modern cloud-inspired design */
+.card {
+  border-radius: var(--ifm-global-radius);
+  box-shadow: var(--ifm-global-shadow-card);
+  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  border: 1px solid var(--ifm-border-color);
+  overflow: hidden;
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-text-color);
+  position: relative;
+  box-sizing: border-box;
+}
+
+.card:hover {
+  box-shadow: var(--ifm-global-shadow);
+  transform: translateY(-4px);
+  border-color: var(--ifm-color-primary-light);
+}
+
+/* Touch-friendly form elements */
+.form-control, .form-input, .form-select {
+  min-height: var(--ifm-input-height);
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--ifm-border-color);
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-text-color);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-control:focus, .form-input:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Touch-friendly navigation items */
+.menu__link,
+.navbar__link,
+.dropdown__link {
+  min-height: 44px; /* Touch-friendly size */
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu__link:hover,
+.navbar__link:hover,
+.dropdown__link:hover {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--ifm-color-primary);
+}
+
+/* Touch-friendly toggle switches */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 54px;
+  height: 30px;
+  min-width: 54px;
+  min-height: 30px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 30px;
+}
+
+.toggle-switch-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-switch-slider {
+  background-color: var(--ifm-color-primary);
+}
+
+input:checked + .toggle-switch-slider:before {
+  transform: translateX(24px);
+}
+
+/* Navbar improvements with proper theme support */
+.navbar {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  background-color: var(--ifm-background-surface-color-deep) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--ifm-border-color);
+  padding: 0.75rem 1.5rem;
+  color: var(--ifm-text-color);
+  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.navbar__link {
+  color: var(--ifm-text-color-secondary) !important;
+  transition: color 0.2s ease;
+}
+
+.navbar__link:hover {
+  color: var(--ifm-color-primary) !important;
+}
+
+.navbar-sidebar {
+  background-color: var(--ifm-background-surface-color-deep) !important;
+}
+
+.navbar-sidebar__brand {
+  background-color: var(--ifm-background-surface-color-deep) !important;
+}
+
+.navbar-sidebar__items {
+  background-color: var(--ifm-background-surface-color-deep) !important;
+}
+
+/* Hero section improvements - proper backgrounds for all modes */
+.hero {
+  background: #f8fafc;
+  border-radius: 0 0 var(--ifm-global-radius) var(--ifm-global-radius);
+  margin-bottom: 2rem;
+  padding: 4rem 0;
+  color: #1e293b;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .hero {
+  background: #1A1A1D !important;
+  color: #f1f5f9;
+}
+
+[data-theme='light'] .hero {
+  background: #f8fafc !important;
+  color: #1e293b;
+}
+
+.hero__title {
+  color: var(--ifm-text-color);
+  transition: color 0.2s ease;
+}
+
+.hero__subtitle {
+  color: var(--ifm-text-color-secondary);
+  transition: color 0.2s ease;
+}
+
+/* Homepage content background */
+.main-wrapper {
+  background-color: var(--ifm-background-color) !important;
+}
+
+[data-theme='dark'] .main-wrapper {
+  background-color: #1A1A1D !important;
+}
+
+[data-theme='light'] .main-wrapper {
+  background-color: #ffffff !important;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Homepage features section */
+.features {
+  padding: 4rem 0;
+  background-color: var(--ifm-background-color);
+  color: var(--ifm-text-color);
+}
+
+.features h3 {
+  color: var(--ifm-text-color);
+  transition: color 0.2s ease;
+}
+
+.features p {
+  color: var(--ifm-text-color-secondary);
+  transition: color 0.2s ease;
+}
+
+[data-theme='dark'] .features {
+  background-color: #1A1A1D;
+  color: #f1f5f9;
+}
+
+[data-theme='dark'] .features h3 {
+  color: #f1f5f9;
+}
+
+[data-theme='dark'] .features p {
+  color: #cbd5e1;
+}
+
+[data-theme='light'] .features {
+  background-color: #ffffff;
+  color: #1e293b;
+}
+
+[data-theme='light'] .features h3 {
+  color: #1e293b;
+}
+
+[data-theme='light'] .features p {
+  color: #475569;
+}
+
+.hero__title {
+  font-size: var(--ifm-h1-font-size);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  font-weight: 300;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+/* Footer improvements */
+.footer {
+  background-color: var(--ifm-background-surface-color-deep);
+  color: var(--ifm-text-color);
+  border-radius: var(--ifm-global-radius) var(--ifm-global-radius) 0 0;
+  margin-top: 4rem;
+  padding: 3rem 0 2rem;
+  border-top: 1px solid var(--ifm-border-color);
+}
+
+/* Dark mode footer background - using single consistent color */
+[data-theme='dark'] .footer {
+  background-color: #1e293b !important; /* Single dark blue-gray color */
+  color: var(--ifm-text-color);
+  border-top: 1px solid #1e293b !important; /* Ensure border uses same color for consistency */
+}
+
+/* Light mode footer background */
+[data-theme='light'] .footer {
+  background-color: #f8fafc !important; /* Single light blue-gray color */
+  color: var(--ifm-text-color);
+  border-top: 1px solid #f8fafc !important; /* Ensure border uses same color for consistency */
+}
+
+/* Ensure all footer links use consistent colors */
+[data-theme='dark'] .footer a,
+[data-theme='light'] .footer a {
+  color: var(--ifm-text-color-secondary) !important;
+}
+
+[data-theme='dark'] .footer a:hover,
+[data-theme='light'] .footer a:hover {
+  color: var(--ifm-color-primary) !important;
+}
+
+.footer__title {
+  color: var(--ifm-text-color);
+  margin-bottom: 1rem;
+}
+
+.footer__link-item {
+  color: var(--ifm-text-color-secondary) !important;
+}
+
+.footer__link-item:hover {
+  color: var(--ifm-color-primary) !important;
+}
+
+/* Sidebar improvements */
+.menu {
+  border-right: 1px solid var(--ifm-border-color);
+  padding: 1rem 0;
+  background-color: var(--ifm-background-surface-color);
+}
+
+.menu__link {
+  color: var(--ifm-text-color-secondary) !important;
+  transition: all 0.2s ease;
+}
+
+.menu__link:hover {
+  color: var(--ifm-color-primary) !important;
+  background-color: rgba(0, 170, 255, 0.1) !important;
+}
+
+.menu__link--active {
+  color: var(--ifm-color-primary) !important;
+  background-color: rgba(0, 170, 255, 0.1) !important;
+}
+
+/* Doc content improvements */
+.docItemContainer {
+  max-width: 100%;
+}
+
+/* Article improvements */
+article {
+  padding: 2rem 0;
+  color: var(--ifm-text-color);
+}
+
+/* Blockquote styling */
+blockquote {
+  border-left: 4px solid var(--ifm-color-primary);
+  background-color: rgba(0, 170, 255, 0.05);
+  padding: 1rem 1.5rem;
+  border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
+  margin: 1.5rem 0;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--ifm-text-color);
+  border: 1px solid var(--ifm-border-color);
+}
+
+/* Table styling */
+table {
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-border-color);
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--ifm-border-color);
+  text-align: left;
+  color: var(--ifm-text-color);
+}
+
+th {
+  background-color: var(--ifm-background-surface-color-light);
+  font-weight: 600;
+  color: var(--ifm-text-color);
+}
+
+/* Alert improvements */
+.alert {
+  border-radius: var(--ifm-global-radius);
+  border-left: 4px solid;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  background-color: var(--ifm-background-surface-color);
+  border: 1px solid var(--ifm-border-color);
+}
+
+.alert--info {
+  border-left-color: var(--ifm-color-primary);
+}
+
+.alert--warning {
+  border-left-color: #f59e0b;
+}
+
+.alert--success {
+  border-left-color: #10b981;
+}
+
+.alert--danger {
+  border-left-color: #ef4444;
+}
+
+/* Pagination improvements */
+.pagination-nav__link {
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--ifm-border-color);
+  transition: all 0.2s ease;
+  padding: 1.5rem;
+  text-decoration: none;
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-text-color);
+}
+
+.pagination-nav__link:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: var(--ifm-global-shadow);
+  color: var(--ifm-color-primary);
+}
+
+/* Custom container improvements */
+.container {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  background-color: var(--ifm-background-color);
+}
+
+/* Code block improvements */
+.prism-code {
+  border-radius: var(--ifm-code-border-size);
+  font-size: var(--ifm-code-font-size);
+  line-height: 1.5;
+  padding: 1rem;
+  background-color: var(--ifm-background-surface-color-light) !important;
+  color: var(--ifm-text-color) !important;
+  border: 1px solid var(--ifm-border-color);
+}
+
+/* Enhanced smooth transitions and cloud-inspired animations */
+* {
+  transition: background-color 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+              border-color 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+              color 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+              transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+              box-shadow 0.3s cubic-bezier(0.22, 0.61, 0.36, 1),
+              opacity 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+/* Smooth fade-in animation for content */
+.fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth slide-up animation */
+.slide-up {
+  animation: slideUp 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Bounce effect on hover for interactive elements */
+.button:hover,
+.card:hover,
+.navbar__link:hover,
+.menu__link:hover {
+  animation: subtleBounce 0.6s ease;
+}
+
+@keyframes subtleBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+/* Cloud-inspired floating animation for key elements */
+.floating-element {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Pulse animation for call-to-action elements */
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(37, 99, 235, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+  }
+}
+
+/* Smooth expand/collapse transitions */
+.collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.collapse.open {
+  max-height: 500px; /* Adjust as needed */
+}
+
+/* Smooth modal fade-in/out */
+.modal {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transform: scale(0.95);
+}
+
+.modal.open {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+/* Custom animations for auth modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* Auth Modal specific styles */
+.auth-modal-bg {
+  background-color: var(--ifm-background-surface-color) !important;
+  color: var(--ifm-text-color) !important;
+  border: 1px solid var(--ifm-border-color) !important;
+  box-shadow: var(--ifm-global-shadow-hover);
+}
+
+.auth-modal-input {
+  background-color: var(--ifm-background-surface-color) !important;
+  color: var(--ifm-text-color) !important;
+  border-color: var(--ifm-border-color) !important;
+  transition: all 0.2s ease;
+}
+
+.auth-modal-input:focus {
+  border-color: var(--ifm-color-primary) !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2) !important;
+  outline: none;
+}
+
+.auth-modal-label {
+  color: var(--ifm-text-color-secondary) !important;
+}
+
+.auth-modal-close-btn {
+  color: var(--ifm-text-color-tertiary) !important;
+  background: transparent !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  border-radius: 50% !important;
+  padding: 6px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.auth-modal-close-btn:hover {
+  color: var(--ifm-color-primary) !important;
+  background-color: rgba(37, 99, 235, 0.1) !important;
+}
+
+.auth-modal-tab-active {
+  color: var(--ifm-color-primary) !important;
+  border-bottom: 2px solid var(--ifm-color-primary) !important;
+  background-color: transparent !important;
+}
+
+.auth-modal-tab-inactive {
+  color: var(--ifm-text-color-tertiary) !important;
+  background-color: transparent !important;
+}
+
+.auth-modal-tab-inactive:hover {
+  color: var(--ifm-text-color-secondary) !important;
+  background-color: rgba(37, 99, 235, 0.05) !important;
+}
+
+/* Dark mode specific overrides for modal */
+[data-theme='dark'] .auth-modal-bg {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border-color: #334155 !important;
+}
+
+[data-theme='dark'] .auth-modal-input {
+  background-color: #1e293b !important;
+  color: #f1f5f9 !important;
+  border-color: #334155 !important;
+}
+
+[data-theme='dark'] .auth-modal-label {
+  color: #cbd5e1 !important;
+}
+
+/* Improved modal overlay styling */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.55) !important;
+  backdrop-filter: blur(6px) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Responsive modal container */
+.modal-container {
+  max-width: 420px !important;
+  width: 95vw !important;
+  margin: 0 auto !important;
+  position: relative !important;
+}
+
+@media (min-width: 640px) {
+  .modal-container {
+    width: 420px !important;
+  }
+}
+
+/* Animation improvements */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+/* Social login button styling */
+.social-login-button {
+  transition: all 0.2s ease !important;
+  border: 1px solid var(--ifm-border-color) !important;
+  background-color: var(--ifm-background-surface-color) !important;
+  color: var(--ifm-text-color-secondary) !important;
+}
+
+.social-login-button:hover {
+  background-color: var(--ifm-background-surface-color-light) !important;
+  border-color: var(--ifm-color-primary) !important;
+  color: var(--ifm-text-color) !important;
+}
+
+/* Separator styling */
+.modal-separator {
+  position: relative !important;
+  margin: 1.5rem 0 !important;
+}
+
+.modal-separator::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 1px !important;
+  background-color: var(--ifm-border-color) !important;
+  transform: translateY(-50%) !important;
+}
+
+.modal-separator-text {
+  position: relative !important;
+  display: inline-block !important;
+  padding: 0 0.75rem !important;
+  background-color: var(--ifm-background-color) !important;
+  color: var(--ifm-text-color-tertiary) !important;
+  font-size: 0.875rem !important;
+}
+
+/* Smooth loading shimmer effect */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Enhanced responsive design for all devices */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    padding: 0 1.5rem;
+  }
+
+  .hero__title {
+    font-size: 2.5rem;
+  }
+
+  .ifm-h1-font-size {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 996px) {
+  .navbar {
+    background-color: var(--ifm-background-surface-color-deep) !important;
+  }
+
+  .navbar__items {
+    gap: 0.5rem;
+  }
+
+  .menu {
+    padding: 1rem;
+  }
+
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .hero__title {
+    font-size: 2.25rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.1rem;
+  }
+
+  .footer {
+    padding: 2rem 0 1.5rem;
+  }
+
+  .footer__col {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Tablet improvements */
+@media (max-width: 768px) {
+  :root {
+    --ifm-h1-font-size: 2rem;
+    --ifm-h2-font-size: 1.75rem;
+    --ifm-h3-font-size: 1.5rem;
+    --ifm-h4-font-size: 1.25rem;
+  }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  .navbar-sidebar__brand {
+    padding: 1rem;
+  }
+
+  .navbar-sidebar__items {
+    padding: 0.5rem 1rem;
+  }
+
+  .hero {
+    padding: 2rem 1.5rem;
+  }
+
+  .hero__title {
+    font-size: 1.75rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1rem;
+  }
+
+  .button {
+    margin-bottom: 0.5rem;
+    width: 100%;
+    text-align: center;
+    min-height: 50px; /* Touch-friendly size */
+  }
+
+  .pagination-nav__link {
+    padding: 1rem;
+  }
+
+  .alert {
+    padding: 0.75rem;
+  }
+
+  .theme-admonition {
+    margin: 1rem 0;
+  }
+
+  /* Mobile-optimized navigation */
+  .navbar__inner {
+    flex-wrap: wrap;
+  }
+
+  /* Side-by-side layout adjustments */
+  .row--justify {
+    flex-wrap: wrap;
+  }
+
+  .col {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Mobile phone improvements */
+@media (max-width: 480px) {
+  :root {
+    --ifm-h1-font-size: 1.75rem;
+    --ifm-h2-font-size: 1.5rem;
+    --ifm-h3-font-size: 1.25rem;
+    --ifm-font-size-base: 1rem;
+    --ifm-button-padding-horizontal: 1.25rem;
+    --ifm-button-padding-vertical: 0.75rem;
+  }
+
+  .container {
+    padding: 0 0.75rem;
+  }
+
+  .hero {
+    padding: 1.5rem 1rem;
+  }
+
+  .hero__title {
+    font-size: 1.5rem;
+  }
+
+  .hero__subtitle {
+    font-size: 0.9rem;
+  }
+
+  .navbar__title {
+    font-size: 1.1rem;
+  }
+
+  .button {
+    padding: 0.75rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+
+  /* Touch-friendly form elements */
+  .form-control, .form-input, .form-select {
+    min-height: 50px;
+    padding: 0.75rem 0.75rem;
+    font-size: 1rem;
+  }
+
+  /* Mobile-optimized menu */
+  .menu__list-item {
+    margin: 0.125rem 0;
+  }
+
+  .menu__link {
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* Adjust table display on small screens */
+  table {
+    font-size: 0.85rem;
+  }
+
+  th, td {
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* Mobile-optimized footer */
+  .footer__title {
+    font-size: 1rem;
+  }
+
+  /* Adjust any large images or elements */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Mobile-friendly chat widget */
+  .chat-widget-panel {
+    width: calc(100vw - 24px);
+    height: 60vh;
+    left: 12px;
+    right: 12px;
+    bottom: 84px;
+  }
+
+  .chat-widget-button {
+    width: 54px;
+    height: 54px;
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 360px) {
+  :root {
+    --ifm-h1-font-size: 1.5rem;
+    --ifm-h2-font-size: 1.35rem;
+    --ifm-h3-font-size: 1.15rem;
+  }
+
+  .hero__title {
+    font-size: 1.35rem;
+  }
+
+  .navbar__items {
+    gap: 0.25rem;
+  }
+
+  .button {
+    min-height: 46px;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+  .chat-widget-panel {
+    height: 50vh;
+  }
+}
+
+/* High contrast and accessibility adjustments */
+@media (prefers-contrast: high) {
+  :root {
+    --ifm-border-color: #000000;
+  }
+
+  [data-theme='dark'] {
+    --ifm-border-color: #ffffff;
+  }
+
+  [data-theme='light'] {
+    --ifm-border-color: #000000;
+  }
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .button:hover,
+  .card:hover {
+    transform: none;
+  }
+}
+
+/* Ensure proper text color in all content areas */
+body,
+.navbar,
+.footer,
+.hero,
+.theme-doc-markdown,
+.main-wrapper,
+section,
+article,
+.container,
+.card {
+  color: var(--ifm-text-color);
+  background-color: var(--ifm-background-color);
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Ensure proper text color in all theme modes */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--ifm-text-color);
+  transition: color 0.3s ease;
+}
+
+p, span, div, li {
+  color: var(--ifm-text-color-secondary);
+  transition: color 0.3s ease;
+}
+
+/* Ensure contrast in all modes */
+a {
+  color: var(--ifm-color-primary);
+  transition: color 0.3s ease;
+}
+
+/* Enhanced text styling for better readability */
+.text-content {
+  color: var(--ifm-text-color-secondary) !important;
+}
+
+.text-primary {
+  color: var(--ifm-color-primary) !important;
+}
+
+.text-secondary {
+  color: var(--ifm-text-color-tertiary) !important;
+}
+
+/* Specific styling for content areas */
+.markdown {
+  color: var(--ifm-text-color-secondary);
+}
+
+/* Improve readability on different backgrounds */
+.alert,
+.card,
+.hero,
+.navbar,
+.footer {
+  color: var(--ifm-text-color);
+}
+
+/* Ensure text is readable in code blocks */
+.prism-code,
+.code-block {
+  color: var(--ifm-text-color) !important;
+}

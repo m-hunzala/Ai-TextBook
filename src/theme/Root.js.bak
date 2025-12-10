@@ -1,0 +1,26 @@
+import React, { useEffect } from 'react';
+import { useLocation, useNavigate } from '@docusaurus/router';
+
+// This component handles authentication for the entire site
+function AuthProvider({ children }) {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isAuthenticated = localStorage.getItem('auth') === 'true';
+    const isPublicPath = location.pathname === '/' ||
+                        location.pathname.startsWith('/docs') ||
+                        location.pathname.startsWith('/blog');
+
+    // If user is not authenticated and trying to access a protected page
+    if (!isAuthenticated && !isPublicPath && location.pathname !== '/login') {
+      navigate('/login');
+    }
+  }, [location, navigate]);
+
+  return <>{children}</>;
+}
+
+export default function Root({ children }) {
+  return <AuthProvider>{children}</AuthProvider>;
+}

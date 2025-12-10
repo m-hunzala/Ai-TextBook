@@ -1,0 +1,58 @@
+<svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .main-text { 
+      font-family: 'Arial', sans-serif; 
+      font-size: 22px; 
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    .highlight-text {
+      font-family: 'Arial', sans-serif; 
+      font-size: 22px; 
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    .robot-shape { 
+      fill: none;
+      stroke: #8AB4F8; 
+      stroke-width: 2;
+    }
+    .ai-element {
+      fill: #81C995;
+    }
+  </style>
+  
+  <!-- Robot silhouette -->
+  <g transform="translate(15, 10)">
+    <!-- Head -->
+    <rect x="5" y="0" width="15" height="15" rx="3" class="robot-shape"/>
+    
+    <!-- Eyes -->
+    <circle cx="9" cy="5" r="1.5" class="ai-element"/>
+    <circle cx="16" cy="5" r="1.5" class="ai-element"/>
+    
+    <!-- Body -->
+    <rect x="0" y="18" width="25" height="22" rx="3" class="robot-shape"/>
+    
+    <!-- Arms -->
+    <line x1="-5" y1="22" x2="0" y2="22" class="robot-shape"/>
+    <line x1="25" y1="22" x2="30" y2="22" class="robot-shape"/>
+    
+    <!-- Legs -->
+    <line x1="8" y1="40" x2="8" y2="47" class="robot-shape"/>
+    <line x1="17" y1="40" x2="17" y2="47" class="robot-shape"/>
+  </g>
+  
+  <!-- Main text: Physical AI -->
+  <text x="50" y="25" class="main-text" fill="white">Physical AI</text>
+  
+  <!-- Subtext: Humanoid -->
+  <text x="50" y="48" class="highlight-text" fill="#8AB4F8">Humanoid</text>
+  
+  <!-- Small book icon -->
+  <g transform="translate(170, 15)">
+    <rect x="0" y="0" width="12" height="15" fill="none" stroke="#FDD663" stroke-width="1.5"/>
+    <rect x="2" y="2" width="8" height="11" fill="#FDD663" opacity="0.3"/>
+    <path d="M4,4 L8,4 M4,7 L9,7 M4,10 L7,10" stroke="#FDD663" stroke-width="0.8"/>
+  </g>
+</svg>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book RAG Chatbot Embed</title>
+    <style>
+        /* Minimal styles for embed container */
+        .book-rag-widget-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .book-rag-widget-iframe {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 380px;
+            height: 500px;
+            max-width: calc(100vw - 40px);
+            max-height: calc(100vh - 40px);
+        }
+    </style>
+</head>
+<body>
+    <h1>Embed Instructions for Book RAG Chatbot</h1>
+    <p>This page demonstrates how to embed the Book RAG Chatbot into your published book web page.</p>
+    
+    <h2>Embed Snippet:</h2>
+    <pre><code>&lt;!-- Book RAG Chatbot Widget --&gt;
+&lt;div id="book-rag-widget-container" class="book-rag-widget-container"&gt;
+  &lt;iframe 
+    src="PATH_TO_YOUR_EMBED_HTML" 
+    class="book-rag-widget-iframe"
+    title="Book Assistant Chat"
+    style="border: none;"
+    allow="clipboard-write"
+  &gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;script&gt;
+// Optional: Set API URL dynamically
+window.BOOK_RAG_API_URL = 'YOUR_API_BASE_URL';
+&lt;/script&gt;</code></pre>
+
+    <h2>How to Use:</h2>
+    <ol>
+        <li>Replace <code>PATH_TO_YOUR_EMBED_HTML</code> with the path to your embed HTML file</li>
+        <li>Replace <code>YOUR_API_BASE_URL</code> with your actual API base URL</li>
+        <li>Include this code snippet in your book's HTML page</li>
+    </ol>
+
+    <h2>Embed Page Example:</h2>
+    <p>Below is an example of how the widget would appear when embedded:</p>
+    
+    <div id="demo-container" style="position: relative; height: 600px; border: 1px solid #ccc; margin: 20px 0; overflow: auto;">
+        <p style="padding: 20px;">This is an example book page content. You can select text here and use the chat widget to ask questions about the selected text.</p>
+        <p style="padding: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        <p style="padding: 20px;">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        
+        <!-- Example embed widget positioned in bottom right -->
+        <div id="book-rag-widget-container" class="book-rag-widget-container">
+            <iframe 
+                src="index.html" 
+                class="book-rag-widget-iframe"
+                title="Book Assistant Chat"
+                style="border: none;"
+                allow="clipboard-write"
+            ></iframe>
+        </div>
+    </div>
+    
+    <h2>Configuration Options:</h2>
+    <ul>
+        <li>Position: By default, widget appears in bottom-right corner</li>
+        <li>Size: Default width 380px, height 500px (responsive)</li>
+        <li>API URL: Set via <code>window.BOOK_RAG_API_URL</code> or data attributes</li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,66 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "SummarizerAgent",
+    "description": "A simple text summarization service that creates short summaries (3-5 lines) from input text/markdown.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/summarize": {
+      "post": {
+        "summary": "Generate a short summary from input text",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SummarizeRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Summary generated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SummarizeResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "SummarizeRequest": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "The input text to summarize"
+          },
+          "max_lines": {
+            "type": "integer",
+            "description": "Maximum number of lines in the summary (default: 5)",
+            "default": 5
+          }
+        },
+        "required": ["text"]
+      },
+      "SummarizeResponse": {
+        "type": "object",
+        "properties": {
+          "summary": {
+            "type": "string",
+            "description": "The generated summary"
+          }
+        },
+        "required": ["summary"]
+      }
+    }
+  }
+}

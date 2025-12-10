@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatBook</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .agent-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .agent-section h2 {
+            margin-top: 0;
+        }
+        textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+            white-space: pre-wrap;
+        }
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+        select {
+            padding: 8px;
+            margin: 5px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Agent Examples</h1>
+    
+    <!-- Summarizer Agent -->
+    <div class="agent-section">
+        <h2>Summarizer Agent</h2>
+        <textarea id="summarizer-input" placeholder="Enter text or markdown to summarize...">Artificial intelligence (AI) is intelligence demonstrated by machines, in contrast to the natural intelligence displayed by humans and animals. Leading AI textbooks define the field as the study of "intelligent agents": any device that perceives its environment and takes actions that maximize its chance of successfully achieving its goals. Colloquially, the term "artificial intelligence" is often used to describe machines that mimic "cognitive" functions that humans associate with the human mind, such as "learning" and "problem solving".</textarea>
+        <br>
+        <label for="max-lines">Max Lines:</label>
+        <input type="number" id="max-lines" value="3" min="1" max="10">
+        <br>
+        <button onclick="callSummarizer()">Summarize</button>
+        <div id="summarizer-result" class="result" style="display:none;"></div>
+    </div>
+    
+    <!-- Code Runner Agent -->
+    <div class="agent-section">
+        <h2>Code Runner Agent</h2>
+        <label for="code-language">Language:</label>
+        <select id="code-language">
+            <option value="python">Python</option>
+            <option value="javascript">JavaScript</option>
+        </select>
+        <br>
+        <textarea id="code-input" placeholder="Enter code to run..."># Python example
+def fibonacci(n):
+    if n <= 1:
+        return n
+    else:
+        return fibonacci(n-1) + fibonacci(n-2)
+
+result = fibonacci(10)
+print(f"Fibonacci of 10 is: {result}")</textarea>
+        <br>
+        <button onclick="callCodeRunner()">Run Code</button>
+        <div id="code-runner-result" class="result" style="display:none;"></div>
+    </div>
+    
+    <!-- Translator Agent -->
+    <div class="agent-section">
+        <h2>Translator Agent</h2>
+        <label for="target-lang">Target Language:</label>
+        <select id="target-lang">
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="de">German</option>
+            <option value="ur">Urdu</option>
+        </select>
+        <br>
+        <textarea id="translator-input" placeholder="Enter text to translate...">Hello world! This is a sample text with **markdown** formatting. We can have *italics* and `code` too.</textarea>
+        <br>
+        <button onclick="callTranslator()">Translate</button>
+        <div id="translator-result" class="result" style="display:none;"></div>
+    </div>
+
+    <script>
+        // Base URLs for the agents
+        const AGENT_URLS = {
+            summarizer: 'http://localhost:8001',
+            code_runner: 'http://localhost:8002',
+            translator: 'http://localhost:8003'
+        };
+
+        // Function to call the Summarizer Agent
+        async function callSummarizer() {
+            const input = document.getElementById('summarizer-input').value;
+            const maxLines = parseInt(document.getElementById('max-lines').value);
+            
+            if (!input.trim()) {
+                alert('Please enter text to summarize');
+                return;
+            }
+            
+            const resultDiv = document.getElementById('summarizer-result');
+            resultDiv.style.display = 'block';
+            resultDiv.textContent = 'Processing...';
+            
+            try {
+                const response = await fetch(`${AGENT_URLS.summarizer}/summarize`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        text: input,
+                        max_lines: maxLines
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = `<span class="success">Summary:</span>\n${data.summary}`;
+                } else {
+                    resultDiv.innerHTML = `<span class="error">Error: ${data.detail || 'Unknown error'}</span>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">Error: ${error.message}</span>`;
+            }
+        }
+
+        // Function to call the Code Runner Agent
+        async function callCodeRunner() {
+            const code = document.getElementById('code-input').value;
+            const language = document.getElementById('code-language').value;
+            
+            if (!code.trim()) {
+                alert('Please enter code to run');
+                return;
+            }
+            
+            const resultDiv = document.getElementById('code-runner-result');
+            resultDiv.style.display = 'block';
+            resultDiv.textContent = 'Executing...';
+            
+            try {
+                const response = await fetch(`${AGENT_URLS.code_runner}/run_code`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        code: code,
+                        language: language
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = `<span class="success">${data.result}</span>\nStdout: ${data.stdout}\nError: ${data.error || 'None'}`;
+                } else {
+                    resultDiv.innerHTML = `<span class="error">Error: ${data.detail || 'Unknown error'}</span>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">Error: ${error.message}</span>`;
+            }
+        }
+
+        // Function to call the Translator Agent
+        async function callTranslator() {
+            const input = document.getElementById('translator-input').value;
+            const targetLang = document.getElementById('target-lang').value;
+            
+            if (!input.trim()) {
+                alert('Please enter text to translate');
+                return;
+            }
+            
+            const resultDiv = document.getElementById('translator-result');
+            resultDiv.style.display = 'block';
+            resultDiv.textContent = 'Translating...';
+            
+            try {
+                const response = await fetch(`${AGENT_URLS.translator}/translate`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        text: input,
+                        target_lang: targetLang
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = `<span class="success">Translation:</span>\n${data.translated_text}`;
+                } else {
+                    resultDiv.innerHTML = `<span class="error">Error: ${data.detail || 'Unknown error'}</span>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<span class="error">Error: ${error.message}</span>`;
+            }
+        }
+    </script>
+</body>
+</html>

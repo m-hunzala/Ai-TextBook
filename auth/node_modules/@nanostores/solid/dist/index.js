@@ -1,0 +1,1 @@
+import{createStore as s,reconcile as a,unwrap as u}from"solid-js/store";import{onCleanup as c}from"solid-js";function p(o){let t=o.get(),[r,e]=i(t),n=o.subscribe(e);return c(()=>n()),r}function i(o){let[t,r]=s({value:o});return[()=>t.value,e=>{let n=u(t.value);return typeof e=="function"&&(e=e(n)),r("value",a(e)),t.value}]}export{p as useStore};

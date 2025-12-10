@@ -1,0 +1,16 @@
+{
+  "name": "book-translation",
+  "version": "1.0.0",
+  "description": "Translation functionality for the book",
+  "main": "api/translate.js",
+  "scripts": {
+    "translate": "node api/translate.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^0.10.1",
+    "openai": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0"
+  }
+}

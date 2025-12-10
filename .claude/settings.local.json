@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(.specify/scripts/bash/create-phr.sh:*)",
+      "Bash(.specify/scripts/bash/setup-plan.sh:*)",
+      "Bash(git rev-parse:*)",
+      "WebSearch",
+      "Bash(.specify/scripts/bash/check-prerequisites.sh:*)",
+      "Bash(npm start)",
+      "Bash(npx tsx server.ts)",
+      "Bash(npm install tsx)",
+      "Bash(timeout 30s npm start)",
+      "Bash(npx docusaurus --version)",
+      "Bash(npx ts-node server.ts)",
+      "Bash(npx docusaurus start --port 3002)",
+      "Bash(.specify/scripts/bash/create-new-feature.sh --json \"[Fix the login/signup UI so it is embedded directly in the top-right corner of the Docusaurus navbar, aligned with the GitHub and theme toggle icons, not floating as a separate modal. The current popup appears awkwardly positioned and styled incorrectly. Rebuild it using Better Auth (https://www.better-auth.com/) but ensure its design matches the exact styling, colors, fonts, spacing, and responsiveness of the main website''s navbar in both light and dark mode. The \"\"Login\"\" button should be a small, clean text link or icon in the navbar, and clicking it should reveal a dropdown panel (not a full-screen modal) containing the login form, signup tab, email/password fields, \"\"Sign In\"\" button, and \"\"Or continue with GitHub/Google\"\" options—all styled consistently with the site''s design system. Ensure smooth animations, proper z-index layering, and mobile responsiveness.]\" --number 1 --short-name \"navbar-auth-dropdown\")",
+      "Bash(netstat -ano)",
+      "Bash(findstr :3000)",
+      "Bash(taskkill /f /pid 19348)",
+      "Bash(npx kill-port 3000)",
+      "Bash(taskkill /f /pid 8912)",
+      "Bash(npx docusaurus start --port 3001)",
+      "Bash(npm run clear)",
+      "Bash(npm install)",
+      "Bash(move \"C:\\Users\\Abc\\physical-ai-book-main\\tmp_db.py\" \"C:\\Users\\Abc\\physical-ai-book-main\\backend\\rag_backend\\database.py\")",
+      "Bash(powershell Move-Item \"C:\\Users\\Abc\\physical-ai-book-main\\tmp_db.py\" \"C:\\Users\\Abc\\physical-ai-book-main\\backend\\rag_backend\\database.py\")",
+      "Bash(powershell Move-Item \"C:\\Users\\Abc\\physical-ai-book-main\\tmp_rag_agent.py\" \"C:\\Users\\Abc\\physical-ai-book-main\\backend\\rag_backend\\rag_agent.py\")",
+      "Bash(powershell Move-Item \"C:\\Users\\Abc\\physical-ai-book-main\\tmp_main.py\" \"C:\\Users\\Abc\\physical-ai-book-main\\backend\\rag_backend\\main.py\")",
+      "Bash(powershell Move-Item \"C:\\Users\\Abc\\physical-ai-book-main\\tmp_chat_widget.jsx\" \"C:\\Users\\Abc\\physical-ai-book-main\\src\\components\\ChatWidget\\ChatWidget.jsx\")",
+      "Bash(python -m uvicorn rag_backend.main:app --port 8000)",
+      "Bash(git remote set-url origin https://github.com/m-hunzala/physical-ai-book.git)",
+      "Bash(git remote add origin https://github.com/m-hunzala/physical-ai-book.git)",
+      "Bash(git add .)",
+      "Bash(git add --all)",
+      "Bash(git reset)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

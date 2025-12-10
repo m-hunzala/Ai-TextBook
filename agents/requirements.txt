@@ -1,0 +1,3 @@
+# Main requirements file for all agents
+# Install these in a virtual environment to run all agents
+requests==2.31.0

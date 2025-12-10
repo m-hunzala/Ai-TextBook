@@ -1,0 +1,264 @@
+.translation-container {
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid var(--ifm-border-color);
+  border-radius: var(--ifm-global-radius);
+  background-color: var(--ifm-background-surface-color);
+  font-family: inherit;
+  box-shadow: var(--ifm-global-shadow-card);
+}
+
+.translation-error {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: var(--ifm-color-danger);
+  padding: 10px;
+  border-radius: var(--ifm-global-radius);
+  margin-bottom: 10px;
+  border-left: 3px solid var(--ifm-color-danger);
+  font-size: 14px;
+}
+
+.translation-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.translation-button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.translate-button {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-light) 100%);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: var(--ifm-button-border-radius);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-height: var(--ifm-button-height);
+  box-shadow: var(--ifm-global-shadow-card);
+}
+
+.translate-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--ifm-global-shadow-hover);
+  background: linear-gradient(135deg, var(--ifm-color-primary-dark) 0%, var(--ifm-color-primary) 100%);
+}
+
+.translate-button:disabled {
+  background-color: var(--ifm-color-emphasis-200);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  opacity: 0.6;
+}
+
+.translate-button.translated {
+  background: linear-gradient(135deg, var(--ifm-color-primary-dark) 0%, var(--ifm-color-primary) 100%);
+}
+
+.clear-translation-button {
+  background: linear-gradient(135deg, var(--ifm-color-danger) 0%, #f87171 100%);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: var(--ifm-button-border-radius);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  min-height: var(--ifm-button-height);
+  box-shadow: var(--ifm-global-shadow-card);
+}
+
+.clear-translation-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--ifm-global-shadow-hover);
+  background: linear-gradient(135deg, #e53e3e 0%, var(--ifm-color-danger) 100%);
+}
+
+.view-mode-toggle {
+  display: flex;
+  gap: 5px;
+  background: var(--ifm-background-surface-color-light);
+  padding: 4px;
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--ifm-border-color);
+}
+
+.view-mode-btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: calc(var(--ifm-global-radius) - 4px);
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+  background: transparent;
+  color: var(--ifm-text-color-secondary);
+}
+
+.view-mode-btn.active {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-light) 100%);
+  color: white;
+  box-shadow: var(--ifm-global-shadow-card);
+}
+
+.view-mode-btn:hover:not(.active) {
+  background-color: rgba(37, 99, 235, 0.1);
+  color: var(--ifm-color-primary);
+}
+
+.translation-content {
+  border-top: 1px solid var(--ifm-border-color);
+  padding-top: 15px;
+}
+
+.single-view {
+  min-height: 200px;
+}
+
+.single-view.urdu {
+  direction: rtl;
+  text-align: right;
+}
+
+.content-header {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--ifm-border-color);
+}
+
+.language-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  border: 1px solid var(--ifm-border-color);
+}
+
+.language-badge.english {
+  background: linear-gradient(135deg, var(--ifm-color-primary) 0%, var(--ifm-color-primary-light) 100%);
+  color: white;
+}
+
+.language-badge.urdu {
+  background: linear-gradient(135deg, var(--ifm-color-accent) 0%, var(--ifm-color-accent-secondary) 100%);
+  color: white;
+}
+
+.content-body {
+  line-height: 1.6;
+}
+
+.side-by-side-view {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.content-column {
+  flex: 1;
+  min-width: 0; /* Allows flex items to shrink below content size */
+  border: 1px solid var(--ifm-border-color);
+  border-radius: var(--ifm-global-radius);
+  overflow: hidden;
+  background: var(--ifm-background-surface-color);
+  box-shadow: var(--ifm-global-shadow-card);
+}
+
+.english-column {
+  direction: ltr;
+  text-align: left;
+}
+
+.urdu-column {
+  direction: rtl;
+  text-align: right;
+}
+
+.content-column .content-header {
+  background-color: var(--ifm-background-surface-color-light);
+  padding: 10px 15px;
+  margin: 0;
+  border-bottom: 1px solid var(--ifm-border-color);
+}
+
+.content-column .content-body {
+  padding: 15px;
+  max-height: 600px;
+  overflow-y: auto;
+  color: var(--ifm-text-color);
+}
+
+/* Style for Urdu text to ensure proper RTL rendering */
+.translation-content .urdu-text {
+  direction: rtl;
+  text-align: right;
+  font-family: 'Jameel Noori Nastaleeq', 'Urdu Typesetting', serif;
+  color: var(--ifm-text-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .translation-container {
+    margin: 10px 0;
+    padding: 10px;
+  }
+  
+  .translation-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .translation-button-group {
+    justify-content: center;
+  }
+  
+  .view-mode-toggle {
+    justify-content: center;
+  }
+  
+  .side-by-side-view {
+    flex-direction: column;
+  }
+  
+  .content-column .content-body {
+    max-height: 400px;
+  }
+}
+
+/* Code block preservation styling */
+.translation-content pre,
+.translation-content code {
+  direction: ltr !important; /* Ensure code blocks are always LTR */
+  text-align: left !important;
+  background-color: var(--ifm-background-surface-color-light) !important;
+  border: 1px solid var(--ifm-border-color) !important;
+  color: var(--ifm-text-color) !important;
+}
+
+/* Specific styling for bilingual display */
+.translation-container.bilingual .content-body {
+  column-count: 2;
+  column-gap: 40px;
+  background-color: var(--ifm-background-surface-color) !important;
+  color: var(--ifm-text-color) !important;
+}
+
+.translation-container.bilingual .content-body p {
+  break-inside: avoid;
+  color: var(--ifm-text-color) !important;
+}

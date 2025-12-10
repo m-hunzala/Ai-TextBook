@@ -1,0 +1,73 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "CodeExampleRunnerAgent",
+    "description": "A code execution service that safely runs JS/Python code snippets and returns results.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/run_code": {
+      "post": {
+        "summary": "Execute a code snippet and return results",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CodeRunRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Code executed successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeRunResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CodeRunRequest": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "The code snippet to execute"
+          },
+          "language": {
+            "type": "string",
+            "description": "Programming language ('python' or 'javascript')"
+          }
+        },
+        "required": ["code", "language"]
+      },
+      "CodeRunResponse": {
+        "type": "object",
+        "properties": {
+          "stdout": {
+            "type": "string",
+            "description": "Standard output from the code execution"
+          },
+          "result": {
+            "type": "string",
+            "description": "Execution result status"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message if execution failed (optional)"
+          }
+        },
+        "required": ["stdout", "result"]
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "name": "@nanostores/query",
+  "version": "0.3.4",
+  "description": "Tiny remote data fetching library for Nano Stores",
+  "scripts": {
+    "pub": "pnpm build && npm publish && git push && git push --tags",
+    "build": "./build.sh",
+    "test:unit": "vitest run --typecheck",
+    "test:size": "size-limit --silent",
+    "test": "pnpm run /^test:/",
+    "dev:test": "vitest"
+  },
+  "keywords": [
+    "nano",
+    "react",
+    "react-native",
+    "preact",
+    "vue",
+    "svelte",
+    "store",
+    "request",
+    "cache",
+    "fetch"
+  ],
+  "author": "Dan Kozlov <d.kzlv.ru@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/nanoquery.umd.cjs",
+  "module": "./dist/nanoquery.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/nanoquery.js",
+      "react-native": "./dist/nanoquery.native.cjs",
+      "require": "./dist/nanoquery.umd.cjs"
+    },
+    "./react-native": {
+      "types": "./dist/main.d.ts",
+      "require": "./dist/nanoquery.native.cjs"
+    }
+  },
+  "dependencies": {
+    "nanoevents": "^9.0.0"
+  },
+  "devDependencies": {
+    "@evilmartians/lefthook": "^1.6.9",
+    "@nanostores/react": "^0.7.2",
+    "@rollup/plugin-replace": "^5.0.5",
+    "@rollup/plugin-strip": "^3.0.4",
+    "@size-limit/preset-small-lib": "^11.1.2",
+    "@testing-library/react": "^14.3.0",
+    "@types/node": "^20.12.6",
+    "@types/react": "^18.2.75",
+    "@types/react-dom": "^18.2.24",
+    "happy-dom": "^14.7.1",
+    "nanostores": "^0.10.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "size-limit": "^11.1.2",
+    "typescript": "^5.4.4",
+    "vite": "^5.2.8",
+    "vite-plugin-dts": "^3.8.1",
+    "vitest": "^1.4.0"
+  },
+  "peerDependencies": {
+    "nanostores": ">=0.10"
+  },
+  "optionalPeerDependencies": {
+    "react-native": ">=0.70",
+    "@react-native-community/netinfo": ">=11"
+  },
+  "engines": {
+    "node": "^14.0.0 || ^16.0.0 || >=18.0.0"
+  },
+  "directories": {
+    "lib": "dist"
+  },
+  "size-limit": [
+    {
+      "name": "All",
+      "import": {
+        "./dist/nanoquery.js": "{ nanoquery }"
+      },
+      "limit": "1924 B"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nanostores/query.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nanostores/query/issues"
+  },
+  "homepage": "https://github.com/nanostores/query#readme"
+}

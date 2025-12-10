@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book RAG Chatbot</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Book RAG Chatbot</h1>
+            <p>Ask questions about the book content</p>
+        </header>
+
+        <div class="chat-container">
+            <div class="chat-history" id="chatHistory">
+                <div class="message bot-message">
+                    <strong>Bot:</strong> Hello! I'm your book assistant. You can ask me questions about the book content. You can also select text on the page and click the "Ask about selected text" button to get answers based only on that text.
+                </div>
+            </div>
+
+            <div class="input-section">
+                <textarea 
+                    id="userInput" 
+                    placeholder="Ask a question about the book..." 
+                    rows="3"
+                ></textarea>
+                <div class="button-group">
+                    <button id="sendButton">Send</button>
+                    <button id="askSelectedButton">Ask about selected text</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="ingestion-section">
+            <h3>Ingest Book Content</h3>
+            <input type="text" id="bookTitle" placeholder="Book Title">
+            <input type="text" id="bookAuthor" placeholder="Author">
+            <textarea id="bookContent" placeholder="Paste book content here..." rows="6"></textarea>
+            <button id="ingestButton">Ingest Book</button>
+        </div>
+    </div>
+
+    <script src="/static/js/chat.js"></script>
+</body>
+</html>

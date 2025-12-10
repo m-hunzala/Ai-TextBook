@@ -1,0 +1,46 @@
+{
+  "name": "better-call",
+  "version": "0.2.3-beta.10",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "pnpm typecheck && vitest",
+    "format": "biome format --write",
+    "typecheck": "tsc --noEmit",
+    "bump": "bumpp",
+    "build": "tsup"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@types/bun": "latest",
+    "bumpp": "^9.4.1",
+    "tsup": "^8.2.3",
+    "type-fest": "^4.23.0",
+    "vitest": "^2.0.4",
+    "zod": "^3.23.8"
+  },
+  "dependencies": {
+    "@better-fetch/fetch": "^1.1.4",
+    "@types/set-cookie-parser": "^2.4.10",
+    "rou3": "^0.5.1",
+    "typescript": "^5.6.0-beta",
+    "set-cookie-parser": "^2.7.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.js",
+      "require": "./dist/client.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ]
+}

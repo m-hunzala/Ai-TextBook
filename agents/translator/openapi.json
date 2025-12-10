@@ -1,0 +1,70 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "TranslatorAgent",
+    "description": "A text translation service that preserves markdown formatting while translating to target languages.",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/translate": {
+      "post": {
+        "summary": "Translate text to target language preserving markdown",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TranslateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Text translated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TranslateResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "TranslateRequest": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string",
+            "description": "The input text to translate"
+          },
+          "target_lang": {
+            "type": "string",
+            "description": "Target language code (e.g., 'es', 'fr', 'ur')"
+          },
+          "source_lang": {
+            "type": "string",
+            "description": "Source language code (default: 'en')",
+            "default": "en"
+          }
+        },
+        "required": ["text", "target_lang"]
+      },
+      "TranslateResponse": {
+        "type": "object",
+        "properties": {
+          "translated_text": {
+            "type": "string",
+            "description": "The translated text with preserved markdown formatting"
+          }
+        },
+        "required": ["translated_text"]
+      }
+    }
+  }
+}
