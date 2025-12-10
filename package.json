@@ -19,6 +19,9 @@
     "start:auth": "cd auth && npx ts-node server.ts",
     "dev": "npm-run-all --parallel start:agents start:auth"
   },
+  "engines": {
+    "node": "18.x"
+  },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.10",
     "@types/cors": "^2.8.19",
